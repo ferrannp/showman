@@ -13,6 +13,7 @@ const Show = React.createClass({
         <h1>Show page, id: {this.props.params.showId}</h1>
         {this.props.isFetching ? <p>Fetching...</p> : null}
         <p>{this.props.show ? JSON.stringify(this.props.show) : null}</p>
+        {this.props.error ? <p>{this.props.error.statusText}</p> : null}
         <Link to="/">Redirect</Link>
       </div>
     );
