@@ -1,4 +1,4 @@
-# ![Showman](logo.png)
+# <img src="logo.png" width="236" height="72" />
 Webpage for the Android app [Showman](https://play.google.com/store/apps/details?id=com.fnp.showman) (Closed beta testing).
 
 # Usage
