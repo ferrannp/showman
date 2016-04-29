@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import * as types from '../constants/ActionTypes'
 
 function receiveShowSuccess(show) {
