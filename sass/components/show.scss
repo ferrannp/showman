@@ -1,0 +1,24 @@
+@import "../variables";
+
+.show-component {
+  position: relative;
+  .cover {
+    background-color: $deep-purple;
+    height: $small-cover-height;
+    @media screen and (min-width: $medium-screen) {
+      height: $medium-cover-height;
+    }
+    @media screen and (min-width: $large-screen) {
+      height: $large-cover-height;
+    }
+  }
+  .details {
+    padding: 0 $small-page-padding;
+    max-width: 100%;
+    @media screen and (min-width: $medium-screen) {
+      max-width: $max-content-width;
+      margin: 0 auto;
+      padding: 0 $page-padding;
+    }
+  }
+}
