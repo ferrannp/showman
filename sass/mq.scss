@@ -1,0 +1,20 @@
+@import "variables";
+
+@media #{$mq-medium-down} {
+  display: block;
+  tr.show-on-small-and-down {
+    display: table-row;
+  }
+}
+
+@media #{$mq-medium-up} {
+  .show-on-small-and-down {
+    display: none;
+  }
+}
+
+.hide-on-small-and-down {
+  @media #{$mq-medium-down} {
+    display: none;
+  }
+}

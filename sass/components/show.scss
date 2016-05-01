@@ -1,24 +1,99 @@
 @import "../variables";
 
+@mixin cover-height() {
+  height: $small-cover-height;
+  @media #{$mq-medium-up} {
+    height: $medium-cover-height;
+  }
+  @media #{$mq-large-up} {
+    height: $large-cover-height;
+  }
+}
+
 .show-component {
   position: relative;
   .cover {
-    background-color: $deep-purple;
-    height: $small-cover-height;
-    @media screen and (min-width: $medium-screen) {
-      height: $medium-cover-height;
-    }
-    @media screen and (min-width: $large-screen) {
-      height: $large-cover-height;
+    @include cover-height();
+    background-color: $image-background;
+    > div {
+      @include cover-height();
     }
   }
   .details {
-    padding: 0 $small-page-padding;
-    max-width: 100%;
-    @media screen and (min-width: $medium-screen) {
-      max-width: $max-content-width;
-      margin: 0 auto;
-      padding: 0 $page-padding;
+    margin-top: -24px;
+    @media #{$mq-medium-up} {
+      margin-top: -48px;
+    }
+    @media #{$mq-large-up} {
+      margin-top: -48px;
+    }
+    margin-left: $small-page-margin;
+    margin-right: $small-page-margin;
+    @media #{$mq-medium-up} {
+      margin-left: $page-margin;
+      margin-right: $page-margin;
+    }
+    .card {
+      @media #{$mq-medium-up} {
+        max-width: $max-content-width;
+        margin: 0 auto;
+      }
+      background-color: white;
+      transition: box-shadow .25s;
+      border-radius: 2px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      padding: $medium-card-padding $small-card-padding ;
+      @media #{$mq-medium-up} {
+        padding: $medium-card-padding;
+      }
+    }
+    .details-body {
+      min-height: calc(100vh - #{$small-cover-height});
+      margin-bottom: 24px;
+      @media #{$mq-medium-up} {
+        min-height: calc(100vh - #{$medium-cover-height});
+        margin-bottom: 48px;
+      }
+      @media #{$mq-large-up} {
+        min-height: calc(100vh - #{$large-cover-height});
+        margin-bottom: 48px;
+      }
+    }
+    .show-details {
+      display: flex;
+      @media #{$mq-medium-up} {
+        :not(:last-child) {
+          margin-right: 24px;
+        }
+      }
+      .poster {
+        background-color: $image-background;
+        flex: 1 0 $small-poster-width;
+        height: $small-poster-height;
+        width: $small-poster-width;
+        max-width: $small-poster-width;
+        @media #{$mq-medium-up} {
+          flex: 1 0 $poster-width;
+          height: $poster-height;
+          width: $poster-width;
+          max-width: $poster-width;
+        }
+      }
+      .summary {
+        flex: 1 0 0;
+        table {
+          border-spacing: 0;
+          text-align: left;
+          td {
+            vertical-align: top;
+            padding-bottom: 5px;
+          }
+          td:nth-child(1) {
+            font-weight: bold;
+            padding-right: 16px;
+          }
+        }
+      }
     }
   }
 }

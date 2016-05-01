@@ -1,18 +1,33 @@
 // Colors
 $background-color: #F5F5F5;
 $deep-purple: #673AB7;
+$image-background: #212121;
 
 // Sizes
 $small-cover-height: 250px;
 $medium-cover-height: 350px;
-$large-cover-height: 500px;
+$large-cover-height: 400px;
 
 $max-content-width: 960px;
 
-$small-page-padding: 16px;
-$page-padding: 24px;
+$small-page-margin: 16px;
+$page-margin: 24px;
+
+$small-poster-height: 300px;
+$small-poster-width: 200px;
+$poster-height: 390px;
+$poster-width: 260px;
+
+// Margin and padding
+$medium-card-padding: 24px;
+$small-card-padding: 16px;
 
 // Breakpoints
-$small-screen: 600px;
-$medium-screen: $max-content-width;
-$large-screen: 1600px;
+$small-screen: 600px + $small-page-margin + $small-page-margin;
+$medium-screen: 800px + $page-margin  + $page-margin;
+$large-screen: 1600px  + $page-margin + $page-margin;
+
+// Media queries
+$mq-medium-up: "screen and (min-width: " + $medium-screen + ")";
+$mq-large-up: "screen and (min-width: " + $large-screen + ")";
+$mq-medium-down: "screen and (max-width: " + $medium-screen + ")";

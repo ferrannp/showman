@@ -17,7 +17,7 @@ function newState(state, partialState){
 export default function show(state = initialState, action) {
   switch (action.type) {
     case FETCH_SHOW_REQUEST:
-      return newState(state, {isFetching: true, error: null});
+      return initialState;
     case FETCH_SHOW_SUCCESS:
       return newState(state, {isFetching: false, show: action.show});
     case FETCH_SHOW_FAILURE:

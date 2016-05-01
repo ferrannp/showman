@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Show from '../components/Show'
+import ShowView from '../components/ShowView'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions'
 
@@ -18,4 +18,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Show);
+)(ShowView);

@@ -28,7 +28,7 @@ module.exports = (PORT) => {
     
     var showId = req.params[0];
 
-    fetch('https://api-v2launch.trakt.tv/shows/' + showId, initFetch)
+    fetch('https://api-v2launch.trakt.tv/shows/' + showId + '?extended=full,images', initFetch)
       .then(checkResponse)
       .then(function (response) {
         return response.json();
