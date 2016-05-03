@@ -30,7 +30,7 @@ export function fetchShow(showId) {
       return; // No need to fetch
     }
     dispatch((function(){return {type: types.FETCH_SHOW_REQUEST}}()));
-    return fetch('/api/show/' + showId)
+    return fetch('/api/shows/' + showId)
       .then(checkResponse)
       .then(response => response.json())
       .then(json => dispatch(receiveShowSuccess(json)))

@@ -7,7 +7,7 @@ const app = express();
 
 module.exports = (PORT) => {
 
-  app.use('/api/show/*', function (req, res) {
+  app.use('/api/shows/*', function (req, res) {
 
     function checkResponse(response) {
       if (response.status >= 200 && response.status < 300) {

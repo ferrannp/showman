@@ -15,7 +15,7 @@ module.exports = {
 
 You can get your api key here https://trakt.tv/oauth/applications/new.
 
-After that, you can just type ```npm start```and go to ```http://localhost:3000/show/game-of-thrones``` (for example!)
+After that, you can just type ```npm start```and go to ```http://localhost:3000/shows/game-of-thrones``` (for example!)
 
 # Testing
 Tests are written using [Jest](https://facebook.github.io/jest/), running them is as simple as typing:

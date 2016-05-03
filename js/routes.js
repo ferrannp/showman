@@ -27,7 +27,7 @@ export default (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}/>
-      <Route path="show/:showId" component={ShowContainer}/>
+      <Route path="shows/:showId" component={ShowContainer}/>
     </Router>
   </Provider>
 )

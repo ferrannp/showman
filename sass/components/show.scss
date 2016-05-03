@@ -72,7 +72,7 @@
         height: $small-poster-height;
         width: $small-poster-width;
         max-width: $small-poster-width;
-        @media #{$mq-medium-up} {
+        @media #{$mq-large-up} {
           flex: 1 0 $poster-width;
           height: $poster-height;
           width: $poster-width;
@@ -81,9 +81,13 @@
       }
       .summary {
         flex: 1 0 0;
+        @media #{$mq-medium-up} {
+          margin-top: 16px;
+        }
         table {
           border-spacing: 0;
           text-align: left;
+          margin-top: 24px;
           td {
             vertical-align: top;
             padding-bottom: 5px;

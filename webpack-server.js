@@ -5,7 +5,7 @@ var config = require('./webpack.config');
 module.exports = (PORT) => {
   const server = new WebpackDevServer(webpack(config), {
     proxy: [{
-      path: '/api/show/*',
+      path: '/api/shows/*',
       target: 'http://0.0.0.0:' + (PORT - 1)
     }],
     publicPath: config.output.publicPath,

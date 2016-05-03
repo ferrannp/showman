@@ -6,6 +6,18 @@ const Show = React.createClass({
   componentDidMount() {
     this.props.actions.fetchShow(this.props.params.showId);
   },
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.show && !this.props.show) {
+      document.title = nextProps.show.title + " - " + document.title;
+    }
+  },
+
+  componentWillUnmount() {
+    if(this.prop.show) {
+      document.title = document.title.split(" - ")[1];
+    }
+  },
   
   render() {
     const show = this.props.show;
