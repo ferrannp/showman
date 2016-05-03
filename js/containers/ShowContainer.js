@@ -3,11 +3,11 @@ import ShowView from '../components/ShowView'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions'
 
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   return {
     ...state.show
   }
-};
+}
 
 function mapDispatchToProps(dispatch) {
   return {

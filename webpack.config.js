@@ -27,6 +27,10 @@ module.exports = {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'js')
+    },
+    {
+      include: /\.json$/,
+      loaders: ["json-loader"]
     }]
   },
   postcss: function () {

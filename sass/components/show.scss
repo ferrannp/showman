@@ -62,7 +62,7 @@
     .show-details {
       display: flex;
       @media #{$mq-medium-up} {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-right: 24px;
         }
       }
@@ -83,6 +83,34 @@
         flex: 1 0 0;
         @media #{$mq-medium-up} {
           margin-top: 16px;
+        }
+        .rating-container {
+          display: flex;
+          @media #{$mq-medium-down} {
+            flex-direction: column;
+          }
+          margin-top: 24px;
+          p {
+            margin: 0;
+            .rating {
+              font-size: 24px; // TODO use variables and em's
+            }
+          }
+          .total, .votes{
+            color: $secondary-text-color;
+          }
+          .rating-numbers {
+            @media #{$mq-medium-down} {
+              order: 1;
+              margin-top: 8px;
+            }
+            @media #{$mq-medium-up} {
+              margin-right: 12px;
+            }
+          }
+          .rating {
+            flex: 1 0 0;
+          }
         }
         table {
           border-spacing: 0;
