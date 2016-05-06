@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../typography";
 
 @mixin cover-height() {
   height: $small-cover-height;
@@ -66,52 +67,25 @@
           margin-right: 24px;
         }
       }
-      .year {
-        color: $secondary-text-color;
-      }
-      .poster {
-        background-color: $image-background;
+      > div:first-child {
         flex: 1 0 $small-poster-width;
-        height: $small-poster-height;
-        width: $small-poster-width;
         max-width: $small-poster-width;
         @media #{$mq-large-up} {
           flex: 1 0 $poster-width;
+          max-width: $poster-width;
+        }
+      }
+      .poster {
+        background-color: $image-background;
+        height: $small-poster-height;
+        width: $small-poster-width;
+        @media #{$mq-large-up} {
           height: $poster-height;
           width: $poster-width;
-          max-width: $poster-width;
         }
       }
       .summary {
         flex: 1 0 0;
-        .rating-container {
-          display: flex;
-          @media #{$mq-medium-down} {
-            flex-direction: column;
-          }
-          margin-top: 16px;
-          p {
-            margin: 0;
-            .rating {
-              font-size: $title
-            }
-          }
-          .total, .votes{
-            color: $secondary-text-color;
-          }
-          .rating-numbers {
-            @media #{$mq-medium-down} {
-              order: 1;
-              margin-top: 8px;
-            }
-            @media #{$mq-medium-up} {
-              margin-right: 12px;
-            }
-          }
-          .rating {
-            flex: 1 0 0;
-          }
-        }
         table {
           border-spacing: 0;
           text-align: left;

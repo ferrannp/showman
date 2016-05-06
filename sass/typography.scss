@@ -14,7 +14,6 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  margin: 0;
   span {
     font-weight: normal;
   }
@@ -28,7 +27,6 @@ p, table {
   @include type-setting($paragraph);
 }
 
-p {
-  margin: $medium-separation 0;
-  padding: 0;
+p.caption {
+  @include type-setting($caption);
 }

@@ -1,0 +1,27 @@
+@import "../variables";
+
+.rating-container {
+  display: flex;
+  @media #{$mq-medium-down} {
+    flex-direction: column;
+  }
+  margin-top: 16px;
+  p {
+    margin: 0;
+    .rating {
+      font-size: $title
+    }
+  }
+  .rating-numbers {
+    @media #{$mq-medium-down} {
+      order: 1;
+      margin-top: 8px;
+    }
+    @media #{$mq-medium-up} {
+      margin-right: 12px;
+    }
+  }
+  .rating {
+    flex: 1 0 0;
+  }
+}

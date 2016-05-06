@@ -1,0 +1,35 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: $background-color;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+p {
+  margin: $medium-separation 0;
+  padding: 0;
+}
+
+p.caption {
+  margin: $xsmall-separation 0;
+}
+
+p.secondary, span.secondary {
+  color: $secondary-text-color;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}

@@ -22,22 +22,15 @@ export const ShowDetails = (props) => {
 
   return (
     <section className="show-details">
-      <div>
-        <img className="poster hide-on-small-and-down" src={show.images.poster.thumb}/>
+      <div className="hide-on-small-and-down">
+        <img className="poster" src={show.images.poster.thumb}/>
+        <p className="caption secondary">Data and images from Trakt.tv: <a href="https://trakt.tv/terms">
+          Terms and conditions</a>
+        </p>
       </div>
       <div className="summary">
-        <h1>{show.title} <span className="year hide-on-small-and-down">- {show.year}</span></h1>
-        <div className="rating-container">
-          <div className="rating-numbers">
-            <p>
-              <span className="rating">{show.rating.toFixed(1)}</span>
-              <span className="total"> / 10</span>
-              <span className="votes show-on-small-and-down"> ({show.votes} votes)</span>
-            </p>
-            <p className="votes hide-on-small-and-down">{show.votes} votes</p>
-          </div>
-          <Rating rating={show.rating}/>
-        </div>
+        <h1>{show.title} <span className="secondary hide-on-small-and-down">- {show.year}</span></h1>
+        <Rating rating={show.rating} votes={show.votes} />
         <p>{show.overview}</p>
         <table>
           <tbody>
