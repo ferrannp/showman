@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowDetails } from './ShowDetails';
+import {ShowDetails} from './ShowDetails';
 
 const Show = React.createClass({
   
@@ -8,13 +8,13 @@ const Show = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.show && !this.props.show) {
+    if (nextProps.show && !this.props.show) {
       document.title = nextProps.show.title + " - " + document.title;
     }
   },
 
   componentWillUnmount() {
-    if(this.prop.show) {
+    if (this.prop.show) {
       document.title = document.title.split(" - ")[1];
     }
   },
@@ -23,7 +23,7 @@ const Show = React.createClass({
     const show = this.props.show;
 
     const coverStyle = {
-      background: show ? 'url(' + show.images.fanart.full +')' : '',
+      background: show ? 'url(' + show.images.fanart.full + ')' : '',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50% 25%',
       backgroundSize: 'cover'
@@ -35,9 +35,11 @@ const Show = React.createClass({
           <div style={show ? coverStyle : null}/>
         </div>
         <div className="details">
-          <div className="card details-body">
-            {show ? <ShowDetails show={show}/> : null}
-          </div>
+          {show ?
+            <div className="card details-body">
+              <ShowDetails show={show}/>
+            </div>
+            : null}
         </div>
       </div>
     );

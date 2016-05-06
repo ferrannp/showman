@@ -26,7 +26,7 @@ export const ShowDetails = (props) => {
         <img className="poster hide-on-small-and-down" src={show.images.poster.thumb}/>
       </div>
       <div className="summary">
-        <h1>{show.title} <span className="hide-on-small-and-down">- {show.year}</span></h1>
+        <h1>{show.title} <span className="year hide-on-small-and-down">- {show.year}</span></h1>
         <div className="rating-container">
           <div className="rating-numbers">
             <p>

@@ -20,6 +20,9 @@
     }
   }
   .details {
+    @media #{$mq-medium-up} {
+      transition: margin-top 1s ease-in-out;
+    }
     margin-top: -24px;
     @media #{$mq-medium-up} {
       margin-top: -48px;
@@ -48,14 +51,11 @@
       }
     }
     .details-body {
-      min-height: calc(100vh - #{$small-cover-height});
       margin-bottom: 24px;
       @media #{$mq-medium-up} {
-        min-height: calc(100vh - #{$medium-cover-height});
         margin-bottom: 48px;
       }
       @media #{$mq-large-up} {
-        min-height: calc(100vh - #{$large-cover-height});
         margin-bottom: 48px;
       }
     }
@@ -65,6 +65,9 @@
         > :not(:last-child) {
           margin-right: 24px;
         }
+      }
+      .year {
+        color: $secondary-text-color;
       }
       .poster {
         background-color: $image-background;
