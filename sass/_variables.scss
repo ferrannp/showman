@@ -4,6 +4,15 @@ $deep-purple-400: #7E57C2;
 $image-background: #212121;
 $secondary-text-color: rgba(0, 0, 0, 0.54);
 
+// Typography
+$base-font-size: 16px;
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+$base-line-height: 1.5;
+$title: em(24px);
+$paragraph: em($base-font-size);
+
 // Sizes
 $small-cover-height: 250px;
 $medium-cover-height: 350px;
@@ -14,14 +23,17 @@ $max-content-width: 960px;
 $small-page-margin: 16px;
 $page-margin: 24px;
 
+// Poster sizes are multiples of trakt poster size:
+// http://docs.trakt.apiary.io/#introduction/images
 $small-poster-height: 300px;
 $small-poster-width: 200px;
 $poster-height: 390px;
 $poster-width: 260px;
 
 // Margin and padding
-$medium-card-padding: 24px;
-$small-card-padding: 16px;
+$large-separation: #{$base-font-size * 2};
+$medium-separation: #{$base-font-size * $base-line-height};
+$small-separation: #{$base-font-size * 1};
 
 // Breakpoints
 $medium-screen: 600px + $page-margin  + $page-margin;

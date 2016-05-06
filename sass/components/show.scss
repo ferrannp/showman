@@ -45,9 +45,9 @@
       transition: box-shadow .25s;
       border-radius: 2px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-      padding: $medium-card-padding $small-card-padding ;
+      padding: $small-separation ;
       @media #{$mq-medium-up} {
-        padding: $medium-card-padding;
+        padding: $medium-separation;
       }
     }
     .details-body {
@@ -84,19 +84,16 @@
       }
       .summary {
         flex: 1 0 0;
-        @media #{$mq-medium-up} {
-          margin-top: 16px;
-        }
         .rating-container {
           display: flex;
           @media #{$mq-medium-down} {
             flex-direction: column;
           }
-          margin-top: 24px;
+          margin-top: 16px;
           p {
             margin: 0;
             .rating {
-              font-size: 24px; // TODO use variables and em's
+              font-size: $title
             }
           }
           .total, .votes{

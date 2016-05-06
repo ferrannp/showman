@@ -4,27 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 html, body {
   background-color: $background-color;
   margin: 0;
-}
-
-body, table {
-  line-height: 1.4em;
-}
-
-h1 {
-  margin: 0;
-  span {
-    font-weight: normal;
-  }
-}
-
-p {
-  margin: 16px 0;
-  padding: 0;
 }
