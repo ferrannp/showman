@@ -5,6 +5,16 @@ import { toStatusString } from '../util/traktUtil';
 import getCountryName from '../util/countryNames';
 import getLanguageName from '../util/languageNames';
 
+function getRowIfExists(title, content, className) {
+  if(!content) return null;
+  return(
+    <tr className={className || null}>
+      <td>{title}</td>
+      <td>{content}</td>
+    </tr>
+  )
+}
+
 export const ShowDetails = (props) => {
 
   const show = props.show;
@@ -24,8 +34,8 @@ export const ShowDetails = (props) => {
     <section className="show-details">
       <div className="hide-on-small-and-down">
         <img className="poster" src={show.images.poster.thumb}/>
-        <p className="xs-caption secondary">Data and images from Trakt.tv: <a href="https://trakt.tv/terms">
-          Terms and conditions</a>
+        <p className="xs-caption secondary">Data and images from Trakt.tv: <a
+          href="https://trakt.tv/terms">Terms and conditions</a>
         </p>
       </div>
       <div className="summary">
@@ -34,60 +44,17 @@ export const ShowDetails = (props) => {
         <p>{show.overview}</p>
         <table>
           <tbody>
-          <tr className="show-on-small-and-down">
-            <td>Year</td>
-            <td>{show.year}</td>
-          </tr>
-          <tr>
-            <td>Status</td>
-            <td>{toStatusString(show.status)}
-            </td>
-          </tr>
-          {isAirTime && showTime ?
-            <tr>
-              <td>Airs</td>
-              <td>{show.airs.day + " at " + localShowTime.format('HH:mm') + ' (' +
-              showTime.format('HH:mm zz') + ') on ' + show.network}
-              </td>
-            </tr>
-            : null}
-          {!isAirTime && show.network ?
-            <tr>
-              <td>Network</td>
-              <td>{show.network}
-              </td>
-            </tr>
-            : null}
-          {show.runtime ?
-            <tr>
-              <td>Runtime</td>
-              <td>{show.runtime + ' minutes'}</td>
-            </tr>
-            : null}
-          {show.first_aired ?
-            <tr>
-              <td>Premiered</td>
-              <td>{moment(show.first_aired).format('MMMM DD, YYYY')}</td>
-            </tr>
-            : null}
-          {show.country ?
-            <tr>
-              <td>Country</td>
-              <td>{getCountryName(show.country)}</td>
-            </tr>
-            : null }
-          {show.language ?
-            <tr>
-              <td>Language</td>
-              <td>{getLanguageName(show.language)}</td>
-            </tr>
-            : null }
-          {genres ?
-            <tr>
-              <td>Genres</td>
-              <td>{genres}</td>
-            </tr>
-            : null }
+          {getRowIfExists('Year', show.year, 'show-on-small-and-down')}
+          {getRowIfExists('Status', toStatusString(show.status))}
+          {isAirTime ? getRowIfExists('Airs', show.airs.day + " at " + localShowTime.format('HH:mm')
+            + ' (' + showTime.format('HH:mm zz') + ') on ' + show.network) : null}
+          {!isAirTime ? getRowIfExists('Network', show.network) : null}
+          {getRowIfExists('Runtime', show.runtime + ' minutes')}
+          {show.first_aired ? getRowIfExists('Premiered', moment(show.first_aired).format('MMMM' +
+            ' DD, YYYY')) : null}
+          {show.country ? getRowIfExists('Country', getCountryName(show.country)) : null}
+          {show.language ? getRowIfExists('Language', getLanguageName(show.language)) : null}
+          {getRowIfExists('Genres', genres)}
           </tbody>
         </table>
       </div>
