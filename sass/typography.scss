@@ -27,6 +27,12 @@ p, table {
   @include type-setting($paragraph);
 }
 
-p.caption {
-  @include type-setting($caption);
+.caption {
+  @include type-setting($xs-caption);
+  @media #{$mq-medium-up} {
+    @include type-setting($caption);
+  }
+}
+.xs-caption {
+  @include type-setting($xs-caption)
 }

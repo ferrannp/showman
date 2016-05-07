@@ -1,0 +1,36 @@
+@import "../variables";
+
+footer {
+  height: $big-footer-height;
+  margin-top: 48px;
+  padding: 16px;
+  @media #{$mq-medium-up} {
+    height: $footer-height;
+    margin-top: 64px;
+    padding: 0;
+  }
+  width: 100%;
+  background-color: $footer-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media #{$mq-medium-down} {
+    flex-direction: column;
+  }
+  p {
+    text-align: center;
+    @media #{$mq-medium-up} {
+      text-align: left;
+    }
+    font-weight: 200;
+    margin: 0 16px 0 0;
+    span {
+      font-weight: 400;
+    }
+  }
+  img {
+    width: 258px;
+    height: 100px;
+    margin-left: 16px;
+  }
+}

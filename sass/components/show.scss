@@ -11,7 +11,7 @@
   }
 }
 
-.show-component {
+.show-view {
   position: relative;
   .cover {
     @include cover-height();
@@ -21,14 +21,8 @@
     }
   }
   .details {
-    @media #{$mq-medium-up} {
-      transition: margin-top 1s ease-in-out;
-    }
     margin-top: -24px;
     @media #{$mq-medium-up} {
-      margin-top: -48px;
-    }
-    @media #{$mq-large-up} {
       margin-top: -48px;
     }
     margin-left: $small-page-margin;
@@ -49,15 +43,6 @@
       padding: $small-separation ;
       @media #{$mq-medium-up} {
         padding: $medium-separation;
-      }
-    }
-    .details-body {
-      margin-bottom: 24px;
-      @media #{$mq-medium-up} {
-        margin-bottom: 48px;
-      }
-      @media #{$mq-large-up} {
-        margin-bottom: 48px;
       }
     }
     .show-details {

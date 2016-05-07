@@ -18,8 +18,8 @@ p {
   padding: 0;
 }
 
-p.caption {
-  margin: $xsmall-separation 0;
+p.caption, p.xs-caption {
+  margin: $xs-small-separation 0;
 }
 
 p.secondary, span.secondary {

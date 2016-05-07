@@ -1,4 +1,5 @@
 import React from 'react';
+import ShowWrapper from '../components/ShowWrapper'
 import {ShowDetails} from './ShowDetails';
 
 const Show = React.createClass({
@@ -13,12 +14,6 @@ const Show = React.createClass({
     }
   },
 
-  componentWillUnmount() {
-    if (this.prop.show) {
-      document.title = document.title.split(" - ")[1];
-    }
-  },
-  
   render() {
     const show = this.props.show;
 
@@ -29,21 +24,23 @@ const Show = React.createClass({
       backgroundSize: 'cover'
     };
 
+    if(!show){
+      return <div className={this.props.className + " show-view"}></div>
+    }
+
     return (
-      <div className="show-component">
+      <div className={this.props.className + " show-view"}>
         <div className="cover">
-          <div style={show ? coverStyle : null}/>
+          <div style={show ? coverStyle : null}></div>
         </div>
         <div className="details">
-          {show ?
-            <div className="card details-body">
-              <ShowDetails show={show}/>
-            </div>
-            : null}
+          <div className="card details-body">
+            <ShowDetails show={show}/>
+          </div>
         </div>
       </div>
     );
   }
 });
 
-export default Show;
+export default ShowWrapper(Show);

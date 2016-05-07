@@ -24,7 +24,7 @@ export const ShowDetails = (props) => {
     <section className="show-details">
       <div className="hide-on-small-and-down">
         <img className="poster" src={show.images.poster.thumb}/>
-        <p className="caption secondary">Data and images from Trakt.tv: <a href="https://trakt.tv/terms">
+        <p className="xs-caption secondary">Data and images from Trakt.tv: <a href="https://trakt.tv/terms">
           Terms and conditions</a>
         </p>
       </div>
