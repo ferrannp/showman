@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <footer>
       <div>
-        <p className="caption"><span>Showman</span>: The superhero Android app!</p>
+        <p className="caption"><span>Showman</span>: The superhero app!</p>
         <p className="caption">Track and organize your favourite TV Shows</p>
       </div>
       <a href={badgeUrl}>
