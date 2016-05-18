@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
 
 module.exports = {
   entry: {
@@ -30,7 +31,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    // Avoid moment to load all locales by default = heavy bundle
+    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en-US)$/)
   ],
   module: {
     loaders: [{

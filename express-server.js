@@ -1,4 +1,5 @@
 var express = require('express');
+var compression = require('compression');
 var path = require('path');
 var fetch = require('node-fetch');
 
@@ -13,6 +14,8 @@ else {
 const app = express();
 
 module.exports = (PORT) => {
+  
+  app.use(compression());
   
   app.use('/api/shows/*', function (req, res) {
 
