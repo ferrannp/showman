@@ -49,7 +49,7 @@ module.exports = (PORT) => {
     })
   });
   
-  app.use('/dist', express.static(path.join(process.env.PWD, 'dist')));
+  app.use(express.static(path.join(process.env.PWD, 'dist')));
   app.get('*', function(req, res) {
     res.sendFile(path.join(process.env.PWD, 'dist/index.html'));
   });
