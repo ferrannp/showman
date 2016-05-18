@@ -9,7 +9,7 @@ module.exports = {
     showman: ["./js/index.js", "./sass/index.scss"]
   },
   output: {
-    path: path.join(process.env.PWD, '/dist/'),
+    path: path.join(process.env.PWD, 'dist'),
     filename: '[name]-[hash].min.js',
     publicPath: '/'
   },
