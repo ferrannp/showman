@@ -2,6 +2,10 @@
   "name": "showman",
   "version": "1.0.0",
   "description": "Showman (Android app) webpage",
+  "engines": {
+    "node": "4.4.0",
+    "npm": "2.14.20"
+  },
   "scripts": {
     "start": "node server",
     "postinstall": "node deploy",
