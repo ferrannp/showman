@@ -11,7 +11,7 @@ module.exports = {
     './js/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(process.env.PWD, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
@@ -26,7 +26,7 @@ module.exports = {
       test: /\.js?$/,
       exclude: /node_modules/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'js')
+      include: path.join(process.env.PWD, 'js')
     }, {
       test: /\.json?$/,
       loaders: ["json-loader"]
