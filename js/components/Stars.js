@@ -1,16 +1,16 @@
 import React from 'react';
 
 function generateImageTag(key, name){
-  return <img key={key} src={"../assets/" + name + ".svg"} height="24"/>
+  return <img key={key} src={name} height="24"/>
 }
 
 export const Stars = (props) => {
   const rating = props.rating;
   const roundedRating = Math.round(rating);
   const max = 10;
-  const full = 'ic_star_24px';
-  const half = 'ic_star_half_24px';
-  const empty = 'ic_star_border_24px';
+  const full = require('../../assets/ic_star_24px.svg');
+  const half = require('../../assets/ic_star_half_24px.svg');
+  const empty = require('../../assets/ic_star_border_24px.svg');
 
   var images = [];
   for (let i=0;i<max;i++) {

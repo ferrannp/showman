@@ -1,12 +1,19 @@
 var express = require('express');
 var path = require('path');
 var fetch = require('node-fetch');
-var TRAKT_API_KEY = require('./secrets').TRAKT_API_KEY;
+
+var TRAKT_API_KEY;
+if(process.env.NODE_ENV === 'production'){
+  TRAKT_API_KEY = process.env.TRAKT_API_KEY;
+}
+else {
+  TRAKT_API_KEY = require('./secrets').TRAKT_API_KEY;
+}
 
 const app = express();
 
 module.exports = (PORT) => {
-
+  
   app.use('/api/shows/*', function (req, res) {
 
     function checkResponse(response) {
@@ -38,6 +45,11 @@ module.exports = (PORT) => {
       return res.status(error.status).send(error);
     })
   });
-
+  
+  app.use(express.static(path.join(__dirname, 'dist')));
+  app.get('*', function(req, res) {
+    res.sendFile(path.resolve(__dirname, 'dist/index.html'))
+  });
+  
   app.listen(PORT);
 };

@@ -22,15 +22,17 @@ module.exports = {
     loaders: [{
       test: /\.scss$/,
       loaders: ["style-loader", "css-loader?sourceMap", "postcss-loader", "sass?sourceMap"]
-    },
-    {
-      test: /\.js$/,
+    }, {
+      test: /\.js?$/,
+      exclude: /node_modules/,
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'js')
-    },
-    {
-      include: /\.json$/,
+    }, {
+      test: /\.json?$/,
       loaders: ["json-loader"]
+    }, {
+      test: /\.svg?g$/,
+      loader: "file-loader?name=img/img-[hash:6].[ext]"
     }]
   },
   postcss: function () {
