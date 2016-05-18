@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(process.env.PWD, 'dist'),
     filename: '[name]-[hash].min.js',
-    publicPath: '/'
+    publicPath: '/dist/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -20,7 +20,7 @@ module.exports = {
       filename: 'index.html'
     }),
     new ExtractTextPlugin('[name]-[hash].min.css', {
-      publicPath: '/',
+      publicPath: '/dist/',
       allChunks: true
     }),
     new webpack.optimize.UglifyJsPlugin({

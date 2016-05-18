@@ -35,7 +35,7 @@ module.exports = (PORT) => {
         'trakt-api-key': TRAKT_API_KEY
       }
     };
-    
+
     var showId = req.params[0];
 
     fetch('https://api-v2launch.trakt.tv/shows/' + showId + '?extended=full,images', initFetch)
@@ -49,8 +49,8 @@ module.exports = (PORT) => {
     })
   });
   
-  app.use(express.static(path.join(process.env.PWD, 'dist')));
-  app.get('/*', function(req, res) {
+  app.use('/dist', express.static(path.join(process.env.PWD, 'dist')));
+  app.get('*', function(req, res) {
     res.sendFile(path.join(process.env.PWD, 'dist/index.html'));
   });
   
