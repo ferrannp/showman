@@ -50,7 +50,7 @@ module.exports = (PORT) => {
   });
   
   app.use(express.static(path.join(process.env.PWD, 'dist')));
-  app.get('*', function(req, res) {
+  app.get('/*', function(req, res) {
     res.sendFile(path.join(process.env.PWD, 'dist/index.html'));
   });
   
