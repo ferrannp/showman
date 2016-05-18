@@ -1,5 +1,12 @@
 # <img src="logo.png" width="236" height="72" />
 Webpage for the Android app [Showman](https://play.google.com/store/apps/details?id=com.fnp.showman) (Closed beta testing).
+ 
+Direct links to TV Shows will serve the purpose of [deep-linking](https://developer.android.com/training/app-indexing/deep-linking.html) them with the Android app.
+
+# Examples
+- https://showman-app.herokuapp.com/shows/game-of-thrones
+- https://showman-app.herokuapp.com/shows/sons-of-anarchy
+- https://showman-app.herokuapp.com/shows/jessica-jones
 
 # Usage
 The app gets data and images from [Trakt.tv](https://trakt.tv/). API calls are proxied using a small [Express server](express-server.js). If you want to try this project locally, follow these steps:
