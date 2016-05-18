@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Showman (Android app) webpage",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server",
+    "postinstall": "node deploy",
     "lint": "eslint js",
     "test": "./node_modules/jest-cli/bin/jest.js"
   },
