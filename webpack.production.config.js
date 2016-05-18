@@ -6,7 +6,7 @@ var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
 
 module.exports = {
   entry: {
-    showman: ["./js/index.js", "./sass/index.scss"]
+    showman: ["./js/index", "./sass/index.scss"]
   },
   output: {
     path: path.join(process.env.PWD, 'dist'),
