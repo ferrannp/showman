@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
 
 module.exports = {
   entry: {
@@ -17,8 +16,10 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.production.html',
-      filename: 'index.html'
+      filename: 'index.html'//,
+      //favicon: './assets/favicon.ico'
     }),
+
     new ExtractTextPlugin('[name]-[hash].min.css', {
       publicPath: '/',
       allChunks: true
@@ -50,6 +51,10 @@ module.exports = {
     }, {
       test: /\.svg?g$/,
       loader: "file-loader?name=img/img-[hash:6].[ext]"
+    }, 
+      {
+      test: /\.png?g$/,
+      loader: "file-loader?name=fav/[name].[ext]"
     }]
   },
   postcss: [
