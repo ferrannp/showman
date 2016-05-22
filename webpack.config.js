@@ -33,9 +33,6 @@ module.exports = {
     }, {
       test: /\.svg?g$/,
       loader: "file-loader?name=img/img-[hash:6].[ext]"
-    }, {
-      test: /\.png?g$/,
-      loader: "file-loader?name=fav/[name].[ext]"
     }]
   },
   postcss: function () {
