@@ -2,6 +2,7 @@ var express = require('express');
 var compression = require('compression');
 var path = require('path');
 var fetch = require('node-fetch');
+var fs = require('fs');
 
 var TRAKT_API_KEY;
 if(process.env.NODE_ENV === 'production'){
@@ -16,6 +17,7 @@ const app = express();
 module.exports = (PORT) => {
   
   app.use(compression());
+  app.use(express.static(path.join(process.env.PWD, 'dist')));
   
   app.use('/api/shows/*', function (req, res) {
 
@@ -49,7 +51,15 @@ module.exports = (PORT) => {
     })
   });
   
-  app.use(express.static(path.join(process.env.PWD, 'dist')));
+  app.use('/shows/*', function (req, res) {
+    var showId = req.params[0];
+    fs.readFile(path.join(process.env.PWD, 'dist/index.html'), 'utf-8', function (error, html) {
+      const meta = '<meta property="og:url" content="https://trakt.tv/shows/' + showId + '"/>';
+      var newHtml = html.replace(/<\/head>/, meta + '</head>');
+      res.send(newHtml);
+    });
+  });
+  
   app.get('*', function(req, res) {
     res.sendFile(path.join(process.env.PWD, 'dist/index.html'));
   });
