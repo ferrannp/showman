@@ -6,7 +6,7 @@ Direct links to TV Shows will serve the purpose of [deep-linking](https://develo
 # Examples
 - https://showman-app.herokuapp.com/shows/game-of-thrones
 - https://showman-app.herokuapp.com/shows/sons-of-anarchy
-- https://showman-app.herokuapp.com/shows/jessica-jones
+- https://showman-app.herokuapp.com/shows/marvel-s-jessica-jones
 
 # Usage
 The app gets data and images from [Trakt.tv](https://trakt.tv/). API calls are proxied using a small [Express server](express-server.js). If you want to try this project locally, follow these steps:
