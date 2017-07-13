@@ -1,9 +1,9 @@
 import React from 'react';
 
 export const Footer = () => {
-  var badgeUrl = "https://play.google.com/store/apps/details?id=com.fnp.showman&utm_source=" +
-    "global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=" +
-    "MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1";
+  var badgeUrl = 'https://play.google.com/store/apps/details?id=com.fnp.showman&utm_source=' +
+    'global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=' +
+    'MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1';
 
   return (
     <footer>

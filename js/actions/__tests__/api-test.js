@@ -1,8 +1,3 @@
-jest.unmock('../api');
-jest.unmock('redux-mock-store');
-jest.unmock('redux-thunk');
-jest.unmock('whatwg-fetch');
-
 import { fetchShow } from '../api';
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -27,14 +22,16 @@ describe('api', () => {
   const show = {ids: {trakt: showId}};
   const store = mockStore({show: {show: null, error: null, isFetching: false }});
   
+  beforeEach(() => {
+    store.clearActions();
+  });
+  
   it('makes sure that window.fetch is the one from the whatwg-fetch polyfill', () => {
     expect(window.fetch.polyfill).toBe(true); // When importing "api" should load the polyfill
     expect(fetchShow).toBeDefined();
   });
   
-  // Using 'pit' to test promise responses. Careful! Using 'it' will always show a green test.
-  // This might be improved in the future with https://github.com/facebook/jest/issues/928
-  pit('calls request and failure actions if the fetch response was not successful', () => {
+  it('calls request and failure actions if the fetch response was not successful', () => {
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockResponse(400, 'Test' +
       ' Error', '{"status":400, "statusText": Test Error!}')));
@@ -43,17 +40,14 @@ describe('api', () => {
       .then(() => {
         const expectedActions = store.getActions();
         expect(expectedActions.length).toBe(2);
-        expect(expectedActions[0]).toEqual({type: types.FETCH_SHOW_REQUEST});
-        expect(expectedActions[1]).toEqual({type: types.FETCH_SHOW_FAILURE,
+        expect(expectedActions).toContainEqual({'type': types.FETCH_SHOW_REQUEST});
+        expect(expectedActions).toContainEqual({type: types.FETCH_SHOW_FAILURE,
           error: {status: 400, statusText: 'Test Error'}});
       })
   });
 
-  // pit
-  pit('calls request and success actions if the fetch response was successful', () => {
-
-    store.clearActions();
-  
+  it('calls request and success actions if the fetch response was successful', () => {
+    
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve(mockResponse(200, null, '{"ids":{"trakt":' + showId + '}}')));
 
@@ -61,8 +55,8 @@ describe('api', () => {
       .then(() => {
         const expectedActions = store.getActions();
         expect(expectedActions.length).toBe(2);
-        expect(expectedActions[0]).toEqual({type: types.FETCH_SHOW_REQUEST});
-        expect(expectedActions[1]).toEqual({type: types.FETCH_SHOW_SUCCESS, show: show});
+        expect(expectedActions).toContainEqual({type: types.FETCH_SHOW_REQUEST});
+        expect(expectedActions).toContainEqual({type: types.FETCH_SHOW_SUCCESS, show: show});
       })
   });
   
@@ -70,7 +64,7 @@ describe('api', () => {
   
     const store = mockStore({show: {show: show, error: {}, isFetching: false }});
   
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve());  
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve());
     
     store.dispatch(fetchShow(showId)); // Same id
     expect(window.fetch).not.toBeCalled();

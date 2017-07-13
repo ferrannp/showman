@@ -10,7 +10,7 @@ const Show = React.createClass({
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.show && !this.props.show) {
-      document.title = nextProps.show.title + " - " + document.title;
+      document.title = nextProps.show.title + ' - ' + document.title;
     }
   },
 
@@ -25,11 +25,11 @@ const Show = React.createClass({
     };
 
     if(!show){
-      return <div className={this.props.className + " show-view"}></div>
+      return <div className={this.props.className + ' show-view'}></div>
     }
 
     return (
-      <div className={this.props.className + " show-view"}>
+      <div className={this.props.className + ' show-view'}>
         <div className="cover">
           <div style={show ? coverStyle : null}></div>
         </div>

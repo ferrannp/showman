@@ -46,7 +46,7 @@ export const ShowDetails = (props) => {
           <tbody>
           {getRowIfExists('Year', show.year, 'show-on-small-and-down')}
           {getRowIfExists('Status', toStatusString(show.status))}
-          {isAirTime ? getRowIfExists('Airs', show.airs.day + " at " + localShowTime.format('HH:mm')
+          {isAirTime ? getRowIfExists('Airs', show.airs.day + ' at ' + localShowTime.format('HH:mm')
             + ' (' + showTime.format('HH:mm zz') + ') on ' + show.network) : null}
           {!isAirTime ? getRowIfExists('Network', show.network) : null}
           {getRowIfExists('Runtime', show.runtime + ' minutes')}

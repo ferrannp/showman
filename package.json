@@ -4,14 +4,14 @@
   "description": "Showman (Android app) webpage",
   "main": "./js/index.js",
   "engines": {
-    "node": "4.4.0",
-    "npm": "2.14.20"
+    "node": "6.11.1",
+    "npm": "3.10.3"
   },
   "scripts": {
     "start": "node server",
     "postinstall": "node deploy",
     "lint": "eslint js",
-    "test": "./node_modules/jest-cli/bin/jest.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,9 @@
   "homepage": "https://showman.herokuapp.com",
   "devDependencies": {
     "babel-eslint": "^6.0.3",
-    "babel-jest": "^12.0.2",
     "eslint": "^2.8.0",
     "eslint-plugin-react": "^5.0.1",
-    "jest-cli": "^12.0.2",
+    "jest": "^20.0.4",
     "react-addons-test-utils": "^15.0.1",
     "react-hot-loader": "^1.3.0",
     "redux-mock-store": "^1.0.2",
@@ -64,7 +63,7 @@
   },
   "jest": {
     "rootDir": ".",
-    "testPathDirs": [
+    "roots": [
       "js"
     ],
     "unmockedModulePathPatterns": [

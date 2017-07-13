@@ -17,6 +17,6 @@ export function toStatusString(status) {
     case 'ended':
       return 'Ended';
     default:
-      throw Error("Invalid status!");
+      throw Error('Invalid status!');
   }
 }
